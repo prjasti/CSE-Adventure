@@ -4,6 +4,14 @@ import time
 #In this game weapons and abilities are emphasized the most
 #WHen you press enter simulation a new grid showing the furniture in a room appears, and when player leaves the simulation the grid disappears
 #and the original playing grid remains 
+'''
+Story: You are lost in the labyrinth known as the perfection complex in a remote
+facility in Russia. Humanity has been exterminated by the splicers, a technologically advanced
+alien species that wants to spread their nanite virus to colonize the entirety of the Milky Way Galaxy for themselves.
+You are one of humanity's remaining survivors, but you are powerless, and the splicers are looking for you as you
+are at the heart of the splicer operation on Earth. Move through rooms, collecting abilities, mods, and weapons, in order to defeat
+enemies until you reach the exit, where the leader, Argos, will be waiting for you....
+'''
 class Room: 
     def __init__(self,furniture=[],number=1,locked=False,lightsOn=True,itemMin=0):       #Initializes room attributes
         self.furniture = furniture   #List of Furniture objects in the Room

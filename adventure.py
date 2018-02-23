@@ -185,17 +185,17 @@ for o in a.furniture:
     o.item.displayStats()
 class Enemy:
   def __init__(self,attacks,health):
-    self.attacks = attacks
-    self.health = health
+    self.attacks = attacks  #Dictionary of attacks and damage values
+    self.health = health    #Health of boss
   def decHealth(self,dec):
-    self.health -= dec
+    self.health -= dec      #Boss is damaged
   def pickAttack(self):
-    x = random.choice(self.attacks.keys())
-    return (x,self.attacks[x])
+    x = random.choice(self.attacks.keys())  
+    return (x,self.attacks[x])  #Returns name of attack and damage value
   def selfDestruct(self):
     if self.health < 20:
       print("NOOOOOO! YOU'LL NEVER WIN!")
-      return ("Nanite Overload",1000000)
+      return ("Nanite Overload",1000000)    #Player must kill him in next move
 def startBoss():#This will be modified so that it can be printed on the Tkinter grid and formatted properly
   print("So it's true. There is indeed a human that intends to\ndestroy all that I have built.")
   print("What a shame, really. I could have put your....skills\nto good use. I could have made you a most prized lieutenant, despite you being a human.")

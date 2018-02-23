@@ -61,9 +61,10 @@ class User:
     def displayBackpack(self):
         for b in self.backpack: #Displays backpack contents, will soon be in a dropdown menu
             print(b)
-    def useItem(self,item):
+    def useItem(self,item):         #Returns weapon used and damage it does and depletes ammo if it is a weapon
       if item.classification == "Weapon":
         item.ammo -= 1
+      return [item.name,item.damage]
 class Furniture:
     def __init__(self,item,gridLoc):
         self.item = item        #Item inside furniture
@@ -185,21 +186,34 @@ for o in a.furniture:
     o.item.displayStats()
 class Enemy:
   def __init__(self,attacks,health):
-    self.attacks = attacks  #Dictionary of attacks and damage values
-    self.health = health    #Health of boss
+    self.attacks = attacks
+    self.health = health
   def decHealth(self,dec):
-    self.health -= dec      #Boss is damaged
+    self.health -= dec
   def pickAttack(self):
-    x = random.choice(self.attacks.keys())  
-    return (x,self.attacks[x])  #Returns name of attack and damage value
-  def selfDestruct(self):
-    if self.health < 20:
-      print("NOOOOOO! YOU'LL NEVER WIN!")
-      return ("Nanite Overload",1000000)    #Player must kill him in next move
+    x = random.choice(self.attacks.keys())
+    return [x,self.attacks[x]]
 def startBoss():#This will be modified so that it can be printed on the Tkinter grid and formatted properly
   print("So it's true. There is indeed a human that intends to\ndestroy all that I have built.")
   print("What a shame, really. I could have put your....skills\nto good use. I could have made you a most prized lieutenant, despite you being a human.")
   print("However, I can assure you that our virus will cleanse all life\nhere in this solar system, and a new golden age will be brought\nabout. Even if it means that your newfound power goes to waste.")
-  p = User()
-  Argos = Enemy()
+  q = Item("Linear Fusion Accelerator","Weapon",300,0,90,0,10)
+  p = User([q],Room(),100000,100000)
+  Argos = Enemy({"Aeon Maul":10},10)
   turn = 1
+  while Argos.health > 0 and p.health > 0:
+    if turn % 2 == 1:
+      x = p.useItem(q)
+      shotHit = [True] * q.accuracy + [False] * (100 - q.accuracy)
+      if random.choice(shotHit):
+          Argos.health -= x[1]
+          print("You damaged the boss")
+      else:
+          print("You missed")
+    else:
+      x = Argos.pickAttack()
+      p.health -= x[1]
+  if Argos.health <= 0:
+     print("You win")
+  else:
+     print("You lost")

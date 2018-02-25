@@ -7,22 +7,27 @@ d.pack()
 w.pack()
 squareSize = 75     #Size of each square
 loc = [225,225]     #Starting point of the first rectangle, used to keep track of location
+current Room = 1 #Current room number; assigns room data through this
 def moveRight():
     if loc[0] < 675:      #At extreme right of board
         w.move(r,squareSize,0)  #Moves 75 right and 0 up  
         loc[0] += squareSize
+        currentRoom += 1
 def moveLeft():
     if loc[0] > 225:     #At extreme left of board
         w.move(r,-squareSize,0)
         loc[0] -= squareSize
+        currentRoom -= 1
 def moveUp():
     if loc[1] > 225:    #At extreme top of board
         w.move(r,0,-squareSize) 
         loc[1] -= squareSize
+        currentRoom -= 7
 def moveDown():
     if loc[1] < 675:   #At extreme bottom of board
         w.move(r,0,squareSize)
         loc[1] += squareSize
+        currentRoom += 7
 def enter():
     d = Canvas(master2, width=300, height=200)
     w.pack()

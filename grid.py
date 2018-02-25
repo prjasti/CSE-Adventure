@@ -8,7 +8,7 @@ d.pack()
 w.pack()
 squareSize = 75     #Size of each square
 loc = [225,225]     #Starting point of the first rectangle, used to keep track of location
-current Room = 1 #Current room number; assigns room data through this
+currentRoom = 1 #Current room number; assigns room data through this
 def moveRight():
     if loc[0] < 675:      #At extreme right of board
         w.move(r,squareSize,0)  #Moves 75 right and 0 up  

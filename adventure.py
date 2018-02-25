@@ -96,19 +96,18 @@ class Item:
         self.space = space #Increment of backpack limit, only applies to inventory mod, otherwise 0
         self.ammo = ammo
     def displayStats(self):
-        print(self.name)
-        print('Type: ' + self.classification)
+        text = self.name + '\n' + self.classification + '\n'
         if self.damage != 0:
-          print('Damage: ' + str(self.damage))
+          text += 'Damage: ' + str(self.damage) + '\n'
         if self.accuracy != 0 and self.accuracy != 100:
-          print('Accuracy: ' + str(self.accuracy))
+          text += 'Accuracy: ' + str(self.accuracy) + '\n'
         if self.health != 0:
-          print('Health: ' + str(self.health))
+          text += 'Health: ' + str(self.health) + '\n'
         if self.space != 0:
-          print('Space: ' + str(self.space))
+          text += 'Space: ' + str(self.space) + '\n'
         if self.ammo != 0:
-          print('Ammo: ' + str(self.ammo))
-        print('\n')
+          text += 'Ammo: ' + str(self.ammo) + '\n'
+        return text
         #Displays each individual attribute except space and health, because those are not true items that can be picked up
         #Does not display redundant information, such as health of C4
 possibleDamage = {  #Possible damage given a weapon or ability

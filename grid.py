@@ -1,4 +1,5 @@
 from tkinter import *
+from adventure import *
 master = Tk()
 master2 = Tk()
 w = Canvas(master, width=3000, height=2000)

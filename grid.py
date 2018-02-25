@@ -25,7 +25,9 @@ def moveDown():
     if loc[1] < 675:   #At extreme bottom of board
         w.move(r,0,squareSize)
         loc[1] += squareSize
-        currentRoom += 7   
+        currentRoom += 7
+def enter():
+    w.create_text(1000,600,text = "Current Room: 1")   
 rightBtn = Button(master, text="Move Right", width=10, command = moveRight)
 leftBtn = Button(master, text="Move Left", width=10, command = moveLeft)
 upBtn = Button(master, text="Move Up", width=10, command = moveUp)

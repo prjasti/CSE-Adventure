@@ -1,10 +1,7 @@
 from tkinter import *
 from adventure import *
 master = Tk()
-master2 = Tk()
 w = Canvas(master, width=3000, height=2000)
-d = Canvas(master2, width=300, height=200)
-d.pack()
 w.pack()
 squareSize = 75     #Size of each square
 loc = [225,225]     #Starting point of the first rectangle, used to keep track of location
@@ -28,13 +25,7 @@ def moveDown():
     if loc[1] < 675:   #At extreme bottom of board
         w.move(r,0,squareSize)
         loc[1] += squareSize
-        currentRoom += 7
-def enter():
-    d = Canvas(master2, width=300, height=200)
-    w.pack()
-    squareSize = 75;
-    loc2 = [225, 225]
-    
+        currentRoom += 7   
 rightBtn = Button(master, text="Move Right", width=10, command = moveRight)
 leftBtn = Button(master, text="Move Left", width=10, command = moveLeft)
 upBtn = Button(master, text="Move Up", width=10, command = moveUp)
@@ -48,10 +39,5 @@ enterBtn.place(x = 1125, y = 400)
 for a0 in range(225,750,squareSize):#Creates 49 squares in a grid each of size 75
     for b0 in range(225,750,squareSize):
         w.create_rectangle(a0,b0,a0+65,b0+65, fill="white", outline = "red")
-r = w.create_oval(loc[0]+10,loc[1]+10,loc[0]+55,loc[1] + 55, fill = "chartreuse")
-w.mainloop()
-for a0 in range(225,750,squareSize):#Creates 49 squares in a grid each of size 75
-    for b0 in range(225,750,squareSize):
-        d.create_rectangle(a0,b0,a0+65,b0+65, fill="white", outline = "red")
 r = w.create_oval(loc[0]+10,loc[1]+10,loc[0]+55,loc[1] + 55, fill = "chartreuse")
 w.mainloop()

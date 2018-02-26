@@ -5,29 +5,42 @@ w = Canvas(master, width=3000, height=2000)
 w.pack()
 squareSize = 75     #Size of each square
 loc = [225,225]     #Starting point of the first rectangle, used to keep track of location
-currentRoom = 1 #Current room number; assigns room data through this
+currentRoom = [1] #Current room number; assigns room data through this
 def moveRight():
     if loc[0] < 675:      #At extreme right of board
         w.move(r,squareSize,0)  #Moves 75 right and 0 up  
         loc[0] += squareSize
-        currentRoom += 1
+        currentRoom[0] += 1
 def moveLeft():
     if loc[0] > 225:     #At extreme left of board
         w.move(r,-squareSize,0)
         loc[0] -= squareSize
-        currentRoom -= 1
+        currentRoom[0] -= 1
 def moveUp():
     if loc[1] > 225:    #At extreme top of board
         w.move(r,0,-squareSize) 
         loc[1] -= squareSize
-        currentRoom -= 7
+        currentRoom[0] -= 7
 def moveDown():
     if loc[1] < 675:   #At extreme bottom of board
         w.move(r,0,squareSize)
         loc[1] += squareSize
-        currentRoom += 7
+        currentRoom[0] += 7
 def enter():
-    w.create_text(1000,600,text = "Current Room: 1")   
+    print("Current Room: " + str(currentRoom[0]))
+    for i, p in enumerate(rooms[currentRoom[0] - 1].furniture):
+        print(str(i+1) + "  " + p.item.displayStats())
+    taken = raw_input("Pick an item to take from the list using its number.")
+    if taken == "Leave" or int(taken) not in range(1,len(rooms[currentRoom[0] - 1].furniture)+1):
+        print("You have left the room.")
+    else:
+        taken = int(taken)
+        itm = rooms[currentRoom[0]-1].furniture[taken-1].item
+        if len(player.backpack) < player.backpackLimit or itm.classification in ["Space", "Health"]:
+            player.addItem(itm)
+            rooms[currentRoom[0]-1].furniture.remove((rooms[currentRoom[0] - 1].furniture[taken-1]))
+        else:
+            print("Your inventory is full. Get a modification to add more space or drop an item.")
 rightBtn = Button(master, text="Move Right", width=10, command = moveRight)
 leftBtn = Button(master, text="Move Left", width=10, command = moveLeft)
 upBtn = Button(master, text="Move Up", width=10, command = moveUp)

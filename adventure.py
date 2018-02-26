@@ -163,6 +163,7 @@ This is just a test creation of the furniture in a room and will probably be
 deleted or modified soon. 
 '''
 player = User()
+playerItems = []
 rooms = []  #List to store rooms to assign to the grid
 for a0 in range(1,50):     
   f = random.choice([1,2,3,4,5,6,7,8]) #Picks a random subset of the numbers 1 to 8
@@ -188,9 +189,9 @@ for a0 in range(1,50):
       damage = accuracy = health = space = ammo = 0
     a.furniture.append(Furniture(Item(furnitureItem,possibleClassification[furnitureItem],damage,health, accuracy,space,ammo)))  #Adds to list of furniture in the room
   a.number = a0   
-  a.locked = True if a0 % 6 == 1 else False   #All rooms along the diagonal from bottom left to top right are locked
+  a.locked = True if a0 in [7,13,19,25,31,37,43] else False   #All rooms along the diagonal from bottom left to top right are locked
   a.lightsOn = False if a0 in [4,22,28,46] else True #All midpoints of the square of the grid are offline
-  a.itemMin = 5 if a0 % 6 == 1 else 0   #All rooms along same diagonal have minimum item requirements
+  a.itemMin = 5 if a0 in [7,13,19,25,31,37,43] else 0   #All rooms along same diagonal have minimum item requirements
   rooms.append(a)
 class Enemy:
   def __init__(self,attacks,health):

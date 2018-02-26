@@ -1,3 +1,9 @@
+'''
+Description: This file initializes rooms with random weapons, their location, their locked and lightsOn state, and minimum item
+requirements. It also initializes players, along with methods such as dropping and adding items, and the player's backpack, 
+location, and health. It also gives possible values to each of the types of weapons and abilities in terms of damage, accuracy, 
+and ammo. 
+'''
 import random
 import time
 #Note: C4 is just a key in this game, simulation offline is just equivalent of lights being out

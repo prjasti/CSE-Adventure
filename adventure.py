@@ -71,14 +71,18 @@ class User:
       if item.classification == "Weapon":
         item.ammo -= 1
       return [item.name,item.damage]
-    def weapons_list(self.backpack):
-        for items in self.backpack:
+    def weapons_list(backpack):
+        weapons_array = []
+        for item in backpack:
             if item.classification == "Weapon":
                 weapons_array.append(item)
-    def attributes_list(self.backpack):
-        for items in self.backpack:
-            if item.classification == "Attribute":
+        return weapons_array
+    def ability_list(backpack):
+        attributes_array = []
+        for item in backpack:
+            if item.classification == "Ability":
                 attributes_array.append(item)
+        return attributes_array
 class Furniture:
     def __init__(self,item):
         self.item = item        #Item inside furniture

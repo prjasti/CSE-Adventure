@@ -165,7 +165,7 @@ deleted or modified soon.
 player = User()
 playerItems = []
 rooms = []  #List to store rooms to assign to the grid
-for a0 in range(1,50):     
+for a0 in range(1,49):     
   f = random.choice([1,2,3,4,5,6,7,8]) #Picks a random subset of the numbers 1 to 8
   a = Room(furniture = [])
   for i in range(f):

@@ -5,13 +5,11 @@ root = Canvas(master, width=3000, height=2000)
 
 boss = Enemy([], 800)
 
-#add user and boss sprites to row 0
-
-Label(master, text="You").grid(row=1, column=0) #implements row 1 labels
-Label(master, text="Boss").grid(row=1, column=1)
+Label(master, text=("Your Health:" + player.health)).grid(row=1, column=0) #implements row 1 labels
+Label(master, text=("Supreme Leader's Health" + boss.health)).grid(row=1, column=1)
 
 # Create a Tkinter variable
-tkvar = StringVar(root)
+tkvar = Item()
 
 # Lists with options
 weapons_options = player.weapons_list()
@@ -31,11 +29,18 @@ def boost_health():
             player.health += random.randint(10, 21)
             break
 
-#option to use health boost
+#button to use health boost
 Button(master, text="Health Boost", command= boost_health()).grid(row=3, column=1)
 
+#commence turn once attack has been selected
 if tkvar != "None":
-    boss.health -= random.randint(possibleDamage[tkvar][0], possibleDamage[tkvar][-1])
+    if tkvar.ammo > 0:
+        if (random.randint(1, 101) < tkvar.accuracy):
+            boss.health -= random.randint(possibleDamage[tkvar][0], possibleDamage[tkvar][-1])
+            tkvar.ammo -= 1
     player.health -= random.randint(10, 30)
+
+    Label(master, text=("Your Health:" + player.health)).grid(row=1, column=0)
+    Label(master, text=("Boss' Health" + boss.health)).grid(row=1, column=1)
 
 root.mainloop()

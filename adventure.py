@@ -43,8 +43,6 @@ class User:
         elif len(self.backpack) < self.backpackLimit: #Number of current items is less than limit
             self.backpack.append(item)              #Adds item to backpack and displays confirmation
             print("You have picked up " + item.name)
-        else:
-            print("Your inventory is full. Get a modification to add more space or drop an item.")  #Backpack is full
     def dropItem(self,item):
         if len(self.backpack) == 0:     
             print("Your backpack is empty")
@@ -74,9 +72,8 @@ class User:
         item.ammo -= 1
       return [item.name,item.damage]
 class Furniture:
-    def __init__(self,item,gridLoc):
+    def __init__(self,item):
         self.item = item        #Item inside furniture
-        self.gridLoc = gridLoc  #Location in the inner grid in the simulation (will it be 3 by 3 grid?)
     def removeItem(self):
         if self.item == None:   #Furniture is empty
             print('There is nothing in here. Either you have already looted\nit, or there was never anything to begin with.')
@@ -96,7 +93,7 @@ class Item:
         self.space = space #Increment of backpack limit, only applies to inventory mod, otherwise 0
         self.ammo = ammo
     def displayStats(self):
-        text = self.name + '\n' + self.classification + '\n'
+        text = self.name + '\n' + 'Type: ' + self.classification + '\n'
         if self.damage != 0:
           text += 'Damage: ' + str(self.damage) + '\n'
         if self.accuracy != 0 and self.accuracy != 100:
@@ -143,7 +140,7 @@ possibleAmmo = {  #Possible amounts of ammo given a weapon
   "Tracer Rifle": list(range(8,14)),
   "Sniper Rifle": list(range(5,10))
 }
-possibleItems = ['Automatic Rifle', 'Revolver', 'Shotgun', 'Fusion Accelerator', 'Linear Fusion Accelerator', 'Tracer Rifle', 'C4','Sniper Rifle','Health Boost','Inventory Mod','Solar Flare','Arc Discharge','Nanite Swarm','Void Slap','',''] #Randomly picked from when initializing furniture
+possibleItems = ['Automatic Rifle', 'Revolver', 'Shotgun', 'Fusion Accelerator', 'Linear Fusion Accelerator', 'Tracer Rifle', 'C4','Sniper Rifle','Health Boost','Inventory Mod','Solar Flare','Arc Discharge','Nanite Swarm','Void Slap'] #Randomly picked from when initializing furniture
 possibleClassification = {  #Type of item given a certain item
   'Automatic Rifle': 'Weapon',
   'Tracer Rifle': 'Weapon',
@@ -165,11 +162,12 @@ possibleClassification = {  #Type of item given a certain item
 This is just a test creation of the furniture in a room and will probably be
 deleted or modified soon. 
 '''
+player = User()
 rooms = []  #List to store rooms to assign to the grid
-for a0 in range(1,49):     
-  f = random.sample([1,2,3,4,5,6,7,8],random.choice([1,2,3,4,5,6,7,8])) #Picks a random subset of the numbers 1 to 8
-  a = Room()
-  for i in f:
+for a0 in range(1,50):     
+  f = random.choice([1,2,3,4,5,6,7,8]) #Picks a random subset of the numbers 1 to 8
+  a = Room(furniture = [])
+  for i in range(f):
     furnitureItem = random.choice(possibleItems) #Picks random name from possibleItems
     if possibleClassification[furnitureItem] == 'Weapon':
       damage = random.choice(possibleDamage[furnitureItem])  #Picks possible damage from given weapon
@@ -188,9 +186,7 @@ for a0 in range(1,49):
       space = random.choice(possibleSpace)
     elif possibleClassification[furnitureItem] == 'C4':
       damage = accuracy = health = space = ammo = 0
-    else:
-      continue
-    a.furniture.append(Furniture(Item(furnitureItem,possibleClassification[furnitureItem],damage,health, accuracy,space,ammo),i))  #Adds to list of furniture in the room
+    a.furniture.append(Furniture(Item(furnitureItem,possibleClassification[furnitureItem],damage,health, accuracy,space,ammo)))  #Adds to list of furniture in the room
   a.number = a0   
   a.locked = True if a0 % 6 == 1 else False   #All rooms along the diagonal from bottom left to top right are locked
   a.lightsOn = False if a0 in [4,22,28,46] else True #All midpoints of the square of the grid are offline

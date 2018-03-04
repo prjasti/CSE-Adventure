@@ -19,16 +19,13 @@ are at the heart of the splicer operation on Earth. Move through rooms, collecti
 enemies until you reach the exit, where the leader, Argos, will be waiting for you....
 '''
 class Room: 
-    def __init__(self,furniture=[],number=1,locked=False,lightsOn=True,itemMin=0):       #Initializes room attributes
+    def __init__(self,furniture=[],number=1,locked=False,lightsOn=True,itemMin=0,visited = False):       #Initializes room attributes
         self.furniture = furniture   #List of Furniture objects in the Room
         self.number = number  #Number which indicates location on Tkinter Grid from 1 to 49
         self.locked = locked   #Indicates if the room is locked
         self.lightsOn = lightsOn   #Indicates if the room's lights are on
         self.itemMin = itemMin   #Number of items that are not keys required to enter room
-    def unlock(self):
-        self.locked = False      #Room is no longer locked    
-    def turnOnLights(self):
-        self.lightsOn = True     #Room can now be looted due to lights being on
+        self.visited = visited #Room has already been visited   
 class User:
     def __init__(self,backpack=[],location=Room(),health=10,backpackLimit=5):
         self.backpack = backpack #List of Item Objects in backpack
@@ -109,7 +106,7 @@ class Item:
         self.health = health    #Health of item, only applies to defense, otherwise 0
         self.accuracy = accuracy  #Probability an item hits its intended target times 100, between 0 and 100 for weapons, 100 for abilities, otherwise 0 
         self.space = space #Increment of backpack limit, only applies to inventory mod, otherwise 0
-        self.ammo = ammo
+        self.ammo = ammo #Capacity of weapon to fire
     def displayStats(self):
         text = self.name + '\n' + 'Type: ' + self.classification + '\n'
         if self.damage != 0:

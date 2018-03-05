@@ -64,38 +64,40 @@ def displayBackpack():
     g = raw_input("What would you like to drop? Press 0 for nothing")
     if int(g) != 0:
         player.dropItem(player.backpack[int(g) - 1])
+def quit():
+    master.destroy()
 def enter():
     if not rooms[currentRoom[0]-1].lightsOn:
         print("This simulation is offline. Get to the center to restart it.")
-    if currentRoom[0] == 10 and rooms[9].visited == False:
+    elif currentRoom[0] == 10 and rooms[9].visited == False:
         i = raw_input("What is the smallest number that can be written as the sum \nof two distinct perfect squares in two different ways?")
         if int(i) != 65:
             print("Incorrect.")
         else:
             print("Correct. Simulation can now be accessed.")
             rooms[9].visited = True
-    if currentRoom[0] == 33 and rooms[32].visited == False:
+    elif currentRoom[0] == 33 and rooms[32].visited == False:
         i = raw_input("What is the fourth smallest number that can be written as the sum \nof two distinct perfect cubes in two different ways?\nNote: this one can not be solved by hand.")
         if int(i) != 20683:
             print("Incorrect.")
         else:
             print("Correct. Simulation can now be accessed.")
             rooms[32].visited = True
-    if currentRoom[0] == 18 and rooms[17].visited == False:
+    elif currentRoom[0] == 18 and rooms[17].visited == False:
         i = raw_input("What are the last two nonzero digits of 90!(90 factorial)? Surprisingly, this one can be solved by hand.")
         if int(i) != 12:
             print("Incorrect.")
         else:
             print("Correct. Simulation can now be accessed.")
             rooms[17].visited = True
-    if currentRoom[0] == 8 and rooms[7].visited == False:
+    elif currentRoom[0] == 8 and rooms[7].visited == False:
         i = raw_input("Gie Lovos drada kee. Drass, drageh.: Ikelos, Carrhae, Exigent, Midnight")
         if i != "Ikelos":
             print("Urusno ka drasgu.")
         else:
             print("Correct. Simulation can now be accessed.")
             rooms[7].visited = True
-    if currentRoom[0] == 48 and rooms[47].visited == False:
+    elif currentRoom[0] == 48 and rooms[47].visited == False:
         i = raw_input("The data carried by this simulation has been corrupted by Argos. You may enter \nit, but for an ultimate price. Give me all your items, and I shall fix it for you.\n Y/N")
         if i == "N":
             print("You have made a wise choice. You can not begin to comprehend what is behind there.")
@@ -133,12 +135,14 @@ upBtn = Button(master, text="Move Up", width=10, command = moveUp)
 downBtn = Button(master, text="Move Down", width=10, command = moveDown)
 enterBtn = Button(master, text="Enter/Refresh", width=15, command = enter)
 displayBtn = Button(master, text = "Backpack", width = 10, command = displayBackpack)
+quitBtn = Button(master, text = "Quit", width = 10, command = quit)
 rightBtn.place(x = 1250, y = 400)
 leftBtn.place(x = 1000, y = 400)
 upBtn.place(x = 1125, y = 300)
 downBtn.place(x = 1125, y = 500)
 enterBtn.place(x = 1100, y = 400)
 displayBtn.place(x = 1125, y = 600)
+quitBtn.place(x = 1125, y = 200)
 for a0 in range(225,750,squareSize):#Creates 49 squares in a grid each of size 75
     for b0 in range(225,750,squareSize):
         w.create_rectangle(a0,b0,a0+65,b0+65, fill="white", outline = "red")

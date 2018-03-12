@@ -137,7 +137,7 @@ def enter():
             print("You didn't steal this, did you?\nVery well, you may enter.")
             rooms[41].visited = True
     elif currentRoom[0] == 14 and rooms[13].visited == False:
-        i = raw_input("Drasku, eir lakusta unosko setum raske: LOKI CROWN, SKYSHOCK, VOLUSPA, SCRY OVERSIGHT\n>>\t")
+        i = raw_input("Drasku, eir lakusta unosko setum raske: LOKI CROWN, SKYSHOCK, VOLUSPA, SCRY OVERSIGHT, AURORA\n>>\t")
         if i != "VOLUSPA" and i != "Voluspa" and i != "voluspa":
             print("Urusno ka drasgu.")
         else:

@@ -111,7 +111,7 @@ def enter():
         if i != "Ikelos" and i != "IKELOS" and i != "ikelos":
             print("Urusno ka drasgu.")
         else:
-            print("Correct. Simulation can now be accessed.")
+            print("These are defensive subroutines programmed by the splicers.\nDo not concern yourself with them. \nSimulation can now be accessed.")
             rooms[7].visited = True
     elif currentRoom[0] == 48 and rooms[47].visited == False:
         i = raw_input("The data carried by this simulation has been corrupted by Argos. You may enter \nit, but for an ultimate price. Give me all your items, and I shall fix it for you.\n Y/N\n>>\t")

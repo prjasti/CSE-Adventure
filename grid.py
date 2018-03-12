@@ -85,6 +85,7 @@ def quit():
 def interact():
     print("Current Room: " + str(currentRoom[0]) + '\n')
     while True:
+        print("  Available Items  \n")
         for i, p in enumerate(rooms[currentRoom[0] - 1].furniture):
                 print(str(i+1) + "  " + p.item.displayStats())
         taken = raw_input("Pick an item to take from the list using its number or enter \'leave\'.\n>>\t")
@@ -174,7 +175,7 @@ def enter():
     elif currentRoom[0] == 28 and rooms[27].visited == False:
         i = raw_input("Unok farus drada norsku karum sta: YUGA, YUGA SUNDOWN, RETROFLEX, TEILHARD, EGYPTIAN, DVALIN\n>>\t")
         if i != "RETROFLEX YUGA EGYPTIAN TEILHARD YUGA SUNDOWN DVALIN":
-            print("What did I just say? Stop messing with the p̴̛̭̳̹̓̽͐̈́̈͊̈́̊̊̊̈́̎̒̀̒͊̋̾̿̒̌̑͐̾̈́̒̓̾̽̈̈́̍̾̃͑̈́͘̚͝͝ͅr̶̨̢̡̧̧̢̛̝̟̩͈͍̟̘̫̣̩̯̭̬͖̪̦͓͖̺̣̹̞͈̲̘͇̳̄̔͂̑̂̑̄͐͋̎̄̇̓́́͗͋̄̍̆̔̔͆̿̓̍͘̚̕̕̕ơ̴͇͗̆̊̇̓͌̀̇̎̂͒͛̓͐͐͊̈̿̈̂̍̌͋̈́́̆̈̿̅̇̑̿̈́̄̽͊̽͒̉̊͗̎̈́̅́̈́̕̕̕̚͠͝͠͝͝ţ̶̨̢̨̨̢̧̛͎͚͉̖̱̮͍͙̗͈̭̗͇̰̻̯̝͙̲͚̙͍̱͍̰̠͓̬̤̹̻̟̲̖͈̖̮͓̫͖̎̓̑͗́͒̈́̽̒̎͆́͛͋͐̾̽̓͛́͆̽̐̎̅̓̈͑̀͂͘̚͜͝͠͝͝ͅͅȍ̸̙̥̌͋͋̐̈́̄̎̿͆̎͛c̵̨͎̖͖͓̺̭̯͉̳̝͕̜̞͈̜͓̲̟̗̱̪̬̖̱͔̦̼̻͎͔̼̦͉͈͕̫͓̃̄̈́̊͛̔̏̐̃̂̃̐̿̿̿̓͘̕͜͠͝͠͝ͅͅo̷̢̨̡̡̩͙͇̝̪̫̠̣̫͔̳̳̖̺̹̠̹̝̺͉͓͍̩̼͎̩̬̥̱̩̦̟̞̩̰͑͑̈́͗́̀͗͊͂̌̏͒̓̈́̈̔̈́͊̈͆̌͐͐̑̽͋͑͛̍̐̅͒̂͂̈͛̓̌͒͋͑̚̕̕̕̕͘͘̚͘̚͠͝͝ͅl̵̨̨̛̛͇̻͔̜͍̪̥̘̻̭͙̺̻͎̺̦̠̗͇͗̀̊̔̆̎̏̃͌͗̅͐̓̓̿́͒̅͐̆͒̔̆͗͆̾͑̈́̂͂̓̎͆͑̆͑̇͑̂̚̚̕͝͝͠͠s̴̢̨̙̲̬̭̦̯͈̜̳̗͒͊̐͜!̢̡͈̠͚̤͉̙͔͈͕̤̺͉̥̪̤ \nExcuse me. I'm a little glitched. Please, do not tamper with the subroutines. \nThey are necessary for humanity.̢̟̣̯̙\n")
+            print("What did I just say? Stop messing with the p̴̛̭̳̹̓̽͐̈́̈͊̈́̊̊̊̈́̎̒̀̒͊̋̾̿̒̌̑͐̾̈́̒̓̾̽̈̈́̍̾̃͑̈́͘̚͝͝ͅr̶̨̢̡̧̧̢̛̝̟̩͈͍̟̘̫̣̩̯̭̬͖̪̦͓͖̺̣̹̞͈̲̘͇̳̄̔͂̑̂̑̄͐͋̎̄̇̓́́͗͋̄̍̆̔̔͆̿̓̍͘̚̕̕̕ơ̴͇͗̆̊̇̓͌̀̇̎̂͒͛̓͐͐͊̈̿̈̂̍̌͋̈́́̆̈̿̅̇̑̿̈́̄̽͊̽͒̉̊͗̎̈́̅́̈́̕̕̕̚͠͝͠͝͝ţ̶̨̢̨̨̢̧̛͎͚͉̖̱̮͍͙̗͈̭̗͇̰̻̯̝͙̲͚̙͍̱͍̰̠͓̬̤̹̻̟̲̖͈̖̮͓̫͖̎̓̑͗́͒̈́̽̒̎͆́͛͋͐̾̽̓͛́͆̽̐̎̅̓̈͑̀͂͘̚͜͝͠͝͝ͅͅȍ̸̙̥̌͋͋̐̈́̄̎̿͆̎͛c̵̨͎̖͖͓̺̭̯͉̳̝͕̜̞͈̜͓̲̟̗̱̪̬̖̱͔̦̼̻͎͔̼̦͉͈͕̫͓̃̄̈́̊͛̔̏̐̃̂̃̐̿̿̿̓͘̕͜͠͝͠͝ͅͅo̷̢̨̡̡̩͙͇̝̪̫̠̣̫͔̳̳̖̺̹̠̹̝̺͉͓͍̩̼͎̩̬̥̱̩̦̟̞̩̰͑͑̈́͗́̀͗͊̓̈́̈̔̈́͊̈͆̌͐͐̑̽͋͑͛̍̐̅͒̂͂̈͛̓̌͒͋͑̚̕̕̕͘͘̚͘̚͠͝͝ͅl̵̨̨̛̛͇̻͔̜͍̪̥̘̻̭͙̺̻͎̺̦̠̗͇͗̀̊̔̆̎̏̃͌͗̅͐̓̓̿́͒̅͐̆͒̔̆͗͆̾͑̈́̂͂̓̎͆͑̆͑̇͑̂̚̚̕͝͝͠͠s̴̢̨̙̲̬̭̦̯͈̜̳̗͒͊̐͜!̢̡͈̠͚̤͉̙͔͈͕̤̺͉̥̪̤ \nExcuse me. I'm a little glitched. Please, do not tamper with the subroutines. \nThey are necessary for humanity.̢̟̣̯̙\n")
         else:
             print("Simulation can now be accessed, but you have deactivated\nthe warmind protocols necessary to keep the last survivors safe.\n\n\nThey can be reactivated, if you find the warmind.\n")
             rooms[27].visited = True
@@ -232,5 +233,7 @@ quitBtn.place(x = 1125, y = 200)
 for a0 in range(225,750,squareSize):#Creates 49 squares in a grid each of size 75
     for b0 in range(225,750,squareSize):
         w.create_rectangle(a0,b0,a0+65,b0+65, fill="white", outline = "red")
+        x = 7 * int((b0-225)/75)+ int((a0-225)/75)+1
+        w.create_text(a0+33,b0+33,text = str(x))
 r = w.create_oval(loc[0]+10,loc[1]+10,loc[0]+55,loc[1] + 55, fill = "chartreuse")
 w.mainloop()

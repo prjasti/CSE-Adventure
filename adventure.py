@@ -215,5 +215,5 @@ class Enemy:
   def decHealth(self,dec):
     self.health -= dec
   def pickAttack(self):
-    x = random.choice(self.attacks.keys())
+    x = random.choice(self.attacks.keys()) #Picks random attack from attack names
     return [x,self.attacks[x]]

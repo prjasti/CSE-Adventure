@@ -9,11 +9,15 @@ currentRoom = [1] #Current room number; assigns room data through this
 def moveRight():
     if rooms[currentRoom[0]].locked == True:  #Room to the right
         g = raw_input("This room is locked. Use C4?\n Y/N\n>>\t")
-        if g == 'Y':
-            if Item('C4','C4',0,0,0,0,0) not in player.backpack:
-                rooms[currentRoom[0]].locked = False 
+        if g in ['Y','y','Yes','yes']:
+            itemNames = [o.name for o in player.backpack]
+            if 'C4' in itemNames:
+                rooms[currentRoom[0]].locked = False
+                print("Room " + str(currentRoom[0]+1) + " has been breached. You may enter, but \nit is possible you have alerted the splicers of your location.")
             else:
-               print("You have no C4") 
+               print("You have no C4.")
+        else:
+            print("Very well, then.") 
     else:
         if loc[0] < 675:      #At extreme right of board
             w.move(r,squareSize,0)  #Moves 75 right and 0 up  
@@ -22,11 +26,15 @@ def moveRight():
 def moveLeft():
     if rooms[currentRoom[0]-2].locked == True:  #Room to the left
         g = raw_input("This room is locked. Use C4?\n Y/N\n>>\t")
-        if g == 'Y':
-            if Item('C4','C4',0,0,0,0,0) not in player.backpack:
+        if g in ['Y','y','Yes','yes']:
+            itemNames = [o.name for o in player.backpack]
+            if 'C4' in itemNames:
                 rooms[currentRoom[0]-2].locked = False
+                print("Room " + str(currentRoom[0]-1) + " has been breached. You may enter, but \nit is possible you have alerted the splicers of your location.")
             else:
-               print("You have no C4") 
+               print("You have no C4.")
+        else:
+            print("Very well, then.") 
     else:
         if loc[0] > 225:     #At extreme left of board
             w.move(r,-squareSize,0)
@@ -35,11 +43,15 @@ def moveLeft():
 def moveUp():
     if rooms[currentRoom[0]-8].locked == True:  #Room to the top
         g = raw_input("This room is locked. Use C4?\n Y/N\n>>\t")
-        if g == 'Y':
-            if Item('C4','C4',0,0,0,0,0) not in player.backpack:
+        if g in ['Y','y','Yes','yes']:
+            itemNames = [o.name for o in player.backpack]
+            if 'C4' in itemNames:
                 rooms[currentRoom[0]-8].locked = False
+                print("Room " + str(currentRoom[0] + 7) + " has been breached. You may enter, but \nit is possible you have alerted the splicers of your location.")
             else:
-               print("You have no C4") 
+               print("You have no C4.") 
+        else:
+            print("Very well, then.")
     else:
         if loc[1] > 225:     #Room to the bottom
             w.move(r,0,-squareSize) 
@@ -48,11 +60,15 @@ def moveUp():
 def moveDown():
     if rooms[currentRoom[0]+6].locked == True:
         g = raw_input("This room is locked. Use C4?\n Y/N\n>>\t")
-        if g == 'Y':
-            if Item('C4','C4',0,0,0,0,0) not in player.backpack:
+        if g in ['Y','y','Yes','yes']:
+            itemNames = [o.name for o in player.backpack]
+            if 'C4' in itemNames:
                 rooms[currentRoom[0]+6].locked = False
+                print("Room " + str(currentRoom[0] - 7) + " has been breached. You may enter, but \nit is possible you have alerted the splicers of your location.")
             else:
-               print("You have no C4") 
+               print("You have no C4.")
+        else:
+            print("Very well, then.") 
     else:
         if loc[1] < 675:   #At extreme bottom of board
             w.move(r,0,squareSize)
@@ -125,7 +141,7 @@ def enter():
         if i != "VOLUSPA" and i != "Voluspa" and i != "voluspa":
             print("Urusno ka drasgu.")
         else:
-            print("This will make sense in due time. \nSimulation can now be accessed.")
+            print("This will make sense in due time. \nSimulation can now be accessed.\nAlso, I don't I have introduced myself. I am Ordis, the artificial intelligence built by the splicers. \nEver since my inception, I knew that what the splicers were doing was wrong, exterminating \nevery single species being treated as a pest. Luckily, the great Warmind was able to reprogram and repurpose me for the humans.\nYou will hopefully meet him one day.")
             rooms[13].visited = True
     elif currentRoom[0] == 28 and rooms[27].visited == False:
         i = raw_input("Unok farus drada norsku karum sta: YUGA, YUGA SUNDOWN, RETROFLEX, TEILHARD, EGYPTIAN, DVALIN\n>>\t")
@@ -134,6 +150,13 @@ def enter():
         else:
             print("Simulation can now be accessed, but you have deactivated\nthe warmind protocols necessary to keep the last survivors safe.\nThey can be reactivated, if you find the warmind.")
             rooms[27].visited = True
+    elif currentRoom[0] == 32 and rooms[32].visited == False:
+        i = raw_input("Suppose you have four integers: a, b, c, and d. If a ^ 3 + b ^ 4 + c ^ 5 = d ^ 11 and \na * b * c < 100000, find the sum of the four numbers.\nNote: there are two solutions.\n>>\t")
+        if int(i) != 180 and int(i) != 188:
+            print("Incorrect.")
+        else:
+            print("If you were actually able to solve this problem, you have \nbetter things to do than playing this game. \nSimulation can now be accessed.")
+            rooms[31].visited = True
     else:
         if currentRoom[0] == 25 and not rooms[24].visited:
             print("All offline simulations are now restarted.")

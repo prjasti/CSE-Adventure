@@ -112,6 +112,7 @@ def enter():
         else:
             print("Correct. Simulation can now be accessed.\n")
             rooms[9].visited = True
+            time.sleep(1)
             interact()
             
     elif currentRoom[0] == 33 and rooms[32].visited == False:
@@ -121,6 +122,7 @@ def enter():
         else:
             print("Correct. Simulation can now be accessed.\n")
             rooms[32].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 18 and rooms[17].visited == False:
         i = raw_input("What are the last two nonzero digits of 90!(90 factorial)? Surprisingly, this one can be solved by hand.\n>>\t")
@@ -129,6 +131,7 @@ def enter():
         else:
             print("Correct. Simulation can now be accessed.\n")
             rooms[17].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 8 and rooms[7].visited == False:
         i = raw_input("Gie Lovos drada kee. Drass, drageh.: IKELOS, CARRHAE, EXIGENT, MIDNIGHT\n>>\t")
@@ -137,6 +140,7 @@ def enter():
         else:
             print("These are defensive subroutines programmed by the splicers.\nDo not concern yourself with them. \nSimulation can now be accessed.\n")
             rooms[7].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 48 and rooms[47].visited == False:
         i = raw_input("The data carried by this simulation has been corrupted by Argos. You may enter \nit, but for an ultimate price. Give me all your items, and I shall fix it for you.\n Y/N\n>>\t")
@@ -148,6 +152,7 @@ def enter():
             player.backpack.append(Item("Outbreak Prime","Weapon",300,0,95,0,50))
             print("You have picked up the Outbreak Prime and can now \nchannel the power of the nanite virus against the splicers.\n")
             rooms[47].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 19 and rooms[18].visited == False:
         i = raw_input("Get out of my room, I'm playing Mine.... I mean, INTRUDER! What are your intentions?\n1 I wish to see Argos.\n2 *Keep quiet* \n3 My name is Jeff.\n>>\t")
@@ -156,6 +161,7 @@ def enter():
         else:
             print("*Dies from cringe* This simulation can now be accessed because you killed the guard with a dead meme. \nHow ironic.\n") 
             rooms[18].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 42 and rooms[41].visited == False:
         if not rooms[47].visited:
@@ -163,6 +169,7 @@ def enter():
         else:
             print("You didn't steal this, did you?\nVery well, you may enter.\n")
             rooms[41].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 14 and rooms[13].visited == False:
         i = raw_input("Drasku, eir lakusta unosko setum raske: LOKI CROWN, SKYSHOCK, VOLUSPA, SCRY OVERSIGHT, AURORA\n>>\t")
@@ -171,6 +178,7 @@ def enter():
         else:
             print("This will make sense in due time. \nSimulation can now be accessed.\nAlso, I don't I have introduced myself. I am Ordis, the artificial intelligence built by the splicers. \nEver since my inception, I knew that what the splicers were doing was wrong, exterminating \nevery single species being treated as a pest. Luckily, the great Warmind was able to reprogram and repurpose me for the humans.\nYou will hopefully meet him one day.\n")
             rooms[13].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 28 and rooms[27].visited == False:
         i = raw_input("Unok farus drada norsku karum sta: YUGA, YUGA SUNDOWN, RETROFLEX, TEILHARD, EGYPTIAN, DVALIN\n>>\t")
@@ -179,6 +187,7 @@ def enter():
         else:
             print("Simulation can now be accessed, but you have deactivated\nthe warmind protocols necessary to keep the last survivors safe.\n\n\nThey can be reactivated, if you find the warmind.\n")
             rooms[27].visited = True
+            time.sleep(1)
             interact()
     elif currentRoom[0] == 32 and rooms[31].visited == False:
         i = raw_input("Suppose you have four integers: a, b, c, and d. If a ^ 3 + b ^ 4 + c ^ 5 = d ^ 11 and \na * b * c < 100000, find the sum of the four numbers.\nNote: there are two solutions.\n>>\t")
@@ -187,13 +196,67 @@ def enter():
         else:
             print("If you were actually able to solve this problem, you have \nbetter things to do than playing this game. \nSimulation can now be accessed.\n")
             rooms[31].visited = True
+            time.sleep(1)
             interact()
-    elif currentRoom[0] == 4:
-        if rooms[47].visited and rooms[40].visited and rooms[30].visited:
+    elif currentRoom[0] == 4 and rooms[47].visited and rooms[9].visited and rooms[32].visited and rooms[17].visited and rooms[7] and rooms[47].visited and rooms[27].visited and rooms[18].visited and rooms[41].visited and rooms[27].visited and rooms[13].visited and rooms[31].visited:
             i = raw_input("The Outbreak Prime is not only a weapon. It is a key built by rebels \nfrom the splicers that can destroy Argos.\nIt has not been activated yet because the user will die with Argos. Would you like to initiate the self-destruct sequence?\nEnter 'CONFIRM' and only 'CONFIRM'.\n>>\t")
             if i == 'CONFIRM':
                 master.destroy()
                 print("Argos has been vanquished, but his followers remain. \nHopefully your actions serve as an example to the remaining survivors.")
+                time.sleep(3)
+                print("Later, however, the splicers find your body. It turns out that you have mild brain activity left. \nThey wish to .. repurpose you by extracting your brain and creating a new\nrace of human hybrid super-soldiers.")
+                time.sleep(3)
+                print("You belong to the Perfection Complex and will suffer there for eternity.")
+                time.sleep(2)
+                print('''                                                                                                  
+                                                                                                   
+                                                                                                   
+                                                                                                   
+                                                                                                   
+                                               *# %#                                               
+                                             .%%% %%%#                                             
+                                           *#%%%% %%%%##                                           
+                                         ,%%%%%%% %%%%%%%#                                         
+                                       ,#%%%%%%%% %%%%%%%%%#                                       
+                                     ,#%%%%%%%%%% %%%%%%%%%%%%                                     
+                                    %%%%%%%%%%%%% %%%%%%%%%%%%%#                                   
+                                 .#%%%%%%%%%%%%%% %%%%%%%%%%%%%%%%                                 
+                               .%%%%%%%%%%%%%%%%# ##%%%%%%%%%%%%%%%%                               
+                             .%%%%%%%%%%%%%%%%%(   ,%%%%%%%%%%%%%%%%%#                             
+                            %%%%%%%%%%%%%%%%%(       /%%%%%%%%%%%%%%%%%%                           
+                          %%%%%%%%%%%%%%%%##           (%%%%%%%%%%%%%%%%%#                         
+                        #%%%%%%%%%%%%%%%##               (%%%%%%%%%%%%%%%%%#                       
+                      %%%%%%%%%%%%%%%%%(                   #%%%%%%%%%%%%%%%%%%                     
+                    %%%%%%%%%%%%%%%%%#                       #%%%%%%%%%%%%%                  
+                                                             #%%%%%%%%%%%%%%%%#.                   
+                                   /#                       %%%%%%%%%%%%%%%%%%*  #                  
+                                (%%#                     #%%%%%%%%%%%%%%%%%,  #%#                  
+                              #%%%%#                   %%%%%%%%%%%%%%%%%%   #%%%#                  
+                            #%%%%%%#                 #%%%%%%%%%%%%%%%%%,  ##%%%%#                  
+                          %%%%%%%%%#               #%%%%%%%%%%%%%%%%%   #%%%%%                
+                        ##%%%%%%%%%#              %%%%%%%%%%%%%%%%%.  #%%%%%%%                  
+                      %%%%%%%%%%%%%#              %%%%%%%%%%%%%%#.  #%%%%%%%%%                  
+                    #%%%%%%%%%%%%%%%             %%%%%%%%%%%%%%   %%%%%%%%%%%                 
+                  #%%%%%%%%%%%%%%%#(               %%%%%%%%%%%.  %%%%%%%%%%%%%%%                  
+                  %%%%%%%%%%%%%%%,                %%%%%%%%%#   %%%%%%%%%%%%%%%%%/                   
+                  %%%%%%%%%%%%#/                  %%%%%%%%   %#%%%%%%%%%%%%%%%#                     
+                  %%%%%%%%%%%,                    %%%%%#   #%%%%%%%%%%%%%%%%#                       
+                  %%%%%%%%#.                       %%%%   #%%%%%%%%%%%%%%%%(                         
+                  %%%%%%#*                            #%%%%%%%%%%%%%%%%#                           
+                  %%%%%.                            #%%%%%%%%%%%%%%%%(                             
+                  %%%,                            ##%%%%%%%%%%%%%%%#                               
+                  #,                              %%%%%%%%%%%%%%%#                                 
+                                                  %%%%%%%%%%%%%(                                   
+                                                  %%%%%%%%%%%#                                     
+                                                  %%%%%%%%%(                                       
+                                                  %%%%%%%#                                         
+                                                  %%%%%#                                           
+                                                  %%%(                                             
+                                                  ##                                               
+                                                                                                   
+                                                                                                   
+                                                                                                   
+                                                                                                   ''')
             else:
                 print("Do not worry. There are other ways to defeat Argos.\n")
     else:
@@ -206,14 +269,21 @@ def enter():
             rooms[24].visited = True
         if currentRoom[0] == 25:
             print('''You have found a corrupted yet intact memory at the computer here. \nParadoxical, is it not? This is what it says: \n Life requires death requires life. All in an unending circle. The expenditure of countless generations, 
-                        slouching blindly toward uncertain ends, each step forward a mere accident of chance. 
-                        But this... this is different. This strange complexity requires only the will to wield it.\n''')
+            slouching blindly toward uncertain ends, each step forward a mere accident of chance. 
+            But this... this is different. This strange complexity requires only the will to wield it.\n''')
         if currentRoom[0] == 36:
             print('''The computer here states vital information about Argos. He is not sentient, unlike
             the splicers. He is a supercomputer purely programmed to eradicate all other life forms as the
             splicers see other organisms in the universe. However, it is rumored that another device in this 
             complex has been created by the great warmind, for the sole purpose of destroying Argos. You won't
             need that though, right?\n''')
+        if currentRoom[0] == 40:
+            print('''Another memory. Argos appears to be dropping memory fragments like bread crumbs. It says: \nLife’s procession is written in the corpses of those who came before. But here the great chain breaks. 
+            Here we step forward, freed from that which has always bound us. Here we speak as gods. We are they who created themselves.\n''')
+        if currentRoom[0] == 21:
+            print('''These memories say some weird stuff about evolution. This one says: \nTo build a species requires epochs. Countless pairings and dyings. Countless generations. 
+            The simplest creature requires geological spans of time to develop. But not machines. 
+            Machines are free from such constraints. It is not life that matters, but the building of complexity. \n''')
         interact()
         rooms[currentRoom[0]-1].visited = True
 rightBtn = Button(master, text="Move Right", width=10, command = moveRight)

@@ -108,7 +108,11 @@ def enter():
     elif currentRoom[0] == 10 and rooms[9].visited == False:
         i = raw_input("What is the smallest number that can be written as the sum \nof two distinct perfect squares in two different ways?\n>>\t")
         if int(i) != 65:
-            print("Incorrect.\n")
+            player.decreaseHealth(1)
+            print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-1 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("Correct. Simulation can now be accessed.\n")
             rooms[9].visited = True
@@ -118,7 +122,11 @@ def enter():
     elif currentRoom[0] == 33 and rooms[32].visited == False:
         i = raw_input("What is the fourth smallest number that can be written as the sum \nof two distinct perfect cubes in two different ways?\nNote: this one can not be solved by hand.\n>>\t")
         if int(i) != 20683:
-            print("Incorrect.")
+            player.decreaseHealth(2)
+            print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-2 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("Correct. Simulation can now be accessed.\n")
             rooms[32].visited = True
@@ -127,7 +135,11 @@ def enter():
     elif currentRoom[0] == 18 and rooms[17].visited == False:
         i = raw_input("What are the last two nonzero digits of 90!(90 factorial)? Surprisingly, this one can be solved by hand.\n>>\t")
         if int(i) != 12:
-            print("Incorrect.")
+            player.decreaseHealth(1)
+            print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-1 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("Correct. Simulation can now be accessed.\n")
             rooms[17].visited = True
@@ -136,7 +148,12 @@ def enter():
     elif currentRoom[0] == 8 and rooms[7].visited == False:
         i = raw_input("Gie Lovos drada kee. Drass, drageh.: IKELOS, CARRHAE, EXIGENT, MIDNIGHT\n>>\t")
         if i != "Ikelos" and i != "IKELOS" and i != "ikelos":
-            print("Urusno ka drasgu.\n")
+            print("Urusno ka drasgu.-1 Health\n")
+            player.decreaseHealth(1)
+            print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-1 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("These are defensive subroutines programmed by the splicers.\nDo not concern yourself with them. \nSimulation can now be accessed.\n")
             rooms[7].visited = True
@@ -174,7 +191,11 @@ def enter():
     elif currentRoom[0] == 14 and rooms[13].visited == False:
         i = raw_input("Drasku, eir lakusta unosko setum raske: LOKI CROWN, SKYSHOCK, VOLUSPA, SCRY OVERSIGHT, AURORA\n>>\t")
         if i != "VOLUSPA" and i != "Voluspa" and i != "voluspa":
-            print("Stop messing with the protocols. You don't know what you're doing.\n")
+            player.decreaseHealth(3)
+            print("Stop messing with the protocols. You don't know what you're doing.\nThe computer controlling this simulation has electrified you.\n-3 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("This will make sense in due time. \nSimulation can now be accessed.\nAlso, I don't I have introduced myself. I am Ordis, the artificial intelligence built by the splicers. \nEver since my inception, I knew that what the splicers were doing was wrong, exterminating \nevery single species being treated as a pest. Luckily, the great Warmind was able to reprogram and repurpose me for the humans.\nYou will hopefully meet him one day.\n")
             rooms[13].visited = True
@@ -183,7 +204,11 @@ def enter():
     elif currentRoom[0] == 28 and rooms[27].visited == False:
         i = raw_input("Unok farus drada norsku karum sta: YUGA, YUGA SUNDOWN, RETROFLEX, TEILHARD, EGYPTIAN, DVALIN\n>>\t")
         if i != "RETROFLEX YUGA EGYPTIAN TEILHARD YUGA SUNDOWN DVALIN":
-            print("What did I just say? Stop messing with the p̴̛̭̳̹̓̽͐̈́̈͊̈́̊̊̊̈́̎̒̀̒͊̋̾̿̒̌̑͐̾̈́̒̓̾̽̈̈́̍̾̃͑̈́͘̚͝͝ͅr̶̨̢̡̧̧̢̛̝̟̩͈͍̟̘̫̣̩̯̭̬͖̪̦͓͖̺̣̹̞͈̲̘͇̳̄̔͂̑̂̑̄͐͋̎̄̇̓́́͗͋̄̍̆̔̔͆̿̓̍͘̚̕̕̕ơ̴͇͗̆̊̇̓͌̀̇̎̂͒͛̓͐͐͊̈̿̈̂̍̌͋̈́́̆̈̿̅̇̑̿̈́̄̽͊̽͒̉̊͗̎̈́̅́̈́̕̕̕̚͠͝͠͝͝ţ̶̨̢̨̨̢̧̛͎͚͉̖̱̮͍͙̗͈̭̗͇̰̻̯̝͙̲͚̙͍̱͍̰̠͓̬̤̹̻̟̲̖͈̖̮͓̫͖̎̓̑͗́͒̈́̽̒̎͆́͛͋͐̾̽̓͛́͆̽̐̎̅̓̈͑̀͂͘̚͜͝͠͝͝ͅͅȍ̸̙̥̌͋͋̐̈́̄̎̿͆̎͛c̵̨͎̖͖͓̺̭̯͉̳̝͕̜̞͈̜͓̲̟̗̱̪̬̖̱͔̦̼̻͎͔̼̦͉͈͕̫͓̃̄̈́̊͛̔̏̐̃̂̃̐̿̿̿̓͘̕͜͠͝͠͝ͅͅo̷̢̨̡̡̩͙͇̝̪̫̠̣̫͔̳̳̖̺̹̠̹̝̺͉͓͍̩̼͎̩̬̥̱̩̦̟̞̩̰͑͑̈́͗́̀͗͊̓̈́̈̔̈́͊̈͆̌͐͐̑̽͋͑͛̍̐̅͒̂͂̈͛̓̌͒͋͑̚̕̕̕͘͘̚͘̚͠͝͝ͅl̵̨̨̛̛͇̻͔̜͍̪̥̘̻̭͙̺̻͎̺̦̠̗͇͗̀̊̔̆̎̏̃͌͗̅͐̓̓̿́͒̅͐̆͒̔̆͗͆̾͑̈́̂͂̓̎͆͑̆͑̇͑̂̚̚̕͝͝͠͠s̴̢̨̙̲̬̭̦̯͈̜̳̗͒͊̐͜!̢̡͈̠͚̤͉̙͔͈͕̤̺͉̥̪̤ \nExcuse me. I'm a little glitched. Please, do not tamper with the subroutines. \nThey are necessary for humanity.̢̟̣̯̙\n")
+            player.decreaseHealth(10)
+            print("What did I just say? Stop messing with the p̴̛̭̳̹̓̽͐̈́̈͊̈́̊̊̊̈́̎̒̀̒͊̋̾̿̒̌̑͐̾̈́̒̓̾̽̈̈́̍̾̃͑̈́͘̚͝͝ͅr̶̨̢̡̧̧̢̛̝̟̩͈͍̟̘̫̣̩̯̭̬͖̪̦͓͖̺̣̹̞͈̲̘͇̳̄̔͂̑̂̑̄͐͋̎̄̇̓́́͗͋̄̍̆̔̔͆̿̓̍͘̚̕̕̕ơ̴͇͗̆̊̇̓͌̀̇̎̂͒͛̓͐͐͊̈̿̈̂̍̌͋̈́́̆̈̿̅̇̑̿̈́̄̽͊̽͒̉̊͗̎̈́̅́̈́̕̕̕̚͠͝͠͝͝ţ̶̨̢̨̨̢̧̛͎͚͉̖̱̮͍͙̗͈̭̗͇̰̻̯̝͙̲͚̙͍̱͍̰̠͓̬̤̹̻̟̲̖͈̖̮͓̫͖̎̓̑͗́͒̈́̽̒̎͆́͛͋͐̾̽̓͛́͆̽̐̎̅̓̈͑̀͂͘̚͜͝͠͝͝ͅͅȍ̸̙̥̌͋͋̐̈́̄̎̿͆̎͛c̵̨͎̖͖͓̺̭̯͉̳̝͕̜̞͈̜͓̲̟̗̱̪̬̖̱͔̦̼̻͎͔̼̦͉͈͕̫͓̃̄̈́̊͛̔̏̐̃̂̃̐̿̿̿̓͘̕͜͠͝͠͝ͅͅo̷̢̨̡̡̩͙͇̝̪̫̠̣̫͔̳̳̖̺̹̠̹̝̺͉͓͍̩̼͎̩̬̥̱̩̦̟̞̩̰͑͑̈́͗́̀͗͊̓̈́̈̔̈́͊̈͆̌͐͐̑̽͋͑͛̍̐̅͒̂͂̈͛̓̌͒͋͑̚̕̕̕͘͘̚͘̚͠͝͝ͅl̵̨̨̛̛͇̻͔̜͍̪̥̘̻̭͙̺̻͎̺̦̠̗͇͗̀̊̔̆̎̏̃͌͗̅͐̓̓̿́͒̅͐̆͒̔̆͗͆̾͑̈́̂͂̓̎͆͑̆͑̇͑̂̚̚̕͝͝͠͠s̴̢̨̙̲̬̭̦̯͈̜̳̗͒͊̐͜!̢̡͈̠͚̤͉̙͔͈͕̤̺͉̥̪̤ \nExcuse me. I'm a little glitched. Please, do not tamper with the subroutines. \nThey are necessary for humanity.\nThe computer controlling this simulation has electrified you.\n-10 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("Simulation can now be accessed, but you have deactivated\nthe warmind protocols necessary to keep the last survivors safe.\n\n\nThey can be reactivated, if you find the warmind.\n")
             rooms[27].visited = True
@@ -192,7 +217,11 @@ def enter():
     elif currentRoom[0] == 32 and rooms[31].visited == False:
         i = raw_input("Suppose you have four integers: a, b, c, and d. If a ^ 3 + b ^ 4 + c ^ 5 = d ^ 11 and \na * b * c < 100000, find the sum of the four numbers.\nNote: there are two solutions.\n>>\t")
         if int(i) != 180 and int(i) != 188:
-            print("Incorrect.")
+            player.decreaseHealth(3)
+            print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-3 Health\nYou now have " + str(player.health) + " health left.")
+            if player.health <= 0:
+                master.destroy()
+                print("Death stalks everyone in the perfection complex.")
         else:
             print("If you were actually able to solve this problem, you have \nbetter things to do than playing this game. \nSimulation can now be accessed.\n")
             rooms[31].visited = True

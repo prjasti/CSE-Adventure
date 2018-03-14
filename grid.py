@@ -133,8 +133,8 @@ def enter():
             time.sleep(1)
             interact()
     elif currentRoom[0] == 18 and rooms[17].visited == False:
-        i = raw_input("What are the last two nonzero digits of 90!(90 factorial)? Surprisingly, this one can be solved by hand.\n>>\t")
-        if int(i) != 12:
+        i = raw_input("How many zeroes does 90! (90 factorial) end in?\n>>\t")
+        if int(i) != 21:
             player.decreaseHealth(1)
             print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-1 Health\nYou now have " + str(player.health) + " health left.")
             if player.health <= 0:
@@ -150,7 +150,7 @@ def enter():
         if i != "Ikelos" and i != "IKELOS" and i != "ikelos":
             print("Urusno ka drasgu.-1 Health\n")
             player.decreaseHealth(1)
-            print("Incorrect.\nThe computer controlling this simulation has electrified you.\n-1 Health\nYou now have " + str(player.health) + " health left.")
+            print("\nThe computer controlling this simulation has electrified you.\n-1 Health\nYou now have " + str(player.health) + " health left.")
             if player.health <= 0:
                 master.destroy()
                 print("Death stalks everyone in the perfection complex.")
